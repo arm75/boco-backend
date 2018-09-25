@@ -1,0 +1,11 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\appData",
+    "\\controllers",
+    "\\templates",
+    "\\views"
+  ],
+  "SelectedNode": "\\controllers\\workOrderApiController.js",
+  "PreviewInSolutionExplorer": false
+}

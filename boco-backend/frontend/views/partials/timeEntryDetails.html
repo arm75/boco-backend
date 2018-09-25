@@ -1,0 +1,135 @@
+<div ng-controller="timeEntryController">
+    <div class="supplier-materials-form">
+        <div class="section-title">Time Entry</div> 
+
+        <form class="supplier-form-indent" ng-submit="addTimeEntryData()" ng-show="isWorkOrderComplete">
+            <ul class="time-entry-form">
+                <li class="">
+                    <input type="text" class="form-control"
+                           onfocus="(this.type='date')" 
+                           onblur="if(!this.value)this.type='text'"
+                           placeholder="Enter Date"
+                           ng-model="date"
+                           required>
+                </li>
+                <li><input type="text" required class="timeInput" class="form-control" placeholder="Time In" id="timeIn" ng-model="time_in"></li>
+                <li><input type="text" required class="timeInput" class="form-control" placeholder="Time Out" id="timeOut" ng-model="time_out"></li>
+                <li><input type="text" required class="form-control" placeholder="Work Type " ng-model="work_type"></li>
+                <li class="custom-btn padlr-50">
+                    <input class="btn btn-gray" type="submit" value="Add Time Entry" />
+                </li>
+            </ul>
+        </form>
+
+    </div>
+
+    <div class="data-table-wrapper">
+            <div class="table-responsive">
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                <th scope="col"> 
+                    <div class="label-wrapper">
+                        <div class="data-label">Employee Name</div>
+                        <div class="sorting-controls">
+                            <img src="assets/img/arrow-top.jpg">
+                            <img src="assets/img/arrow-bottom.jpg">
+                        </div>
+                    </div>
+                </th> 
+                <th scope="col"> 
+                        <div class="label-wrapper">
+                                <div class="data-label">Date</div>
+                                <div class="sorting-controls">
+                                    <img src="assets/img/arrow-top.jpg">
+                                    <img src="assets/img/arrow-bottom.jpg">
+                                </div>
+                        </div>
+                        </th> 
+                        <th scope="col"> 
+                            <div class="label-wrapper">
+                                    <div class="data-label">Time in</div>
+                                    <div class="sorting-controls">
+                                        <img src="assets/img/arrow-top.jpg">
+                                        <img src="assets/img/arrow-bottom.jpg">
+                                    </div>
+                            </div>
+                            </th> 
+                            <th scope="col"> 
+                                <div class="label-wrapper">
+                                        <div class="data-label">Time out</div>
+                                        <div class="sorting-controls">
+                                            <img src="assets/img/arrow-top.jpg">
+                                            <img src="assets/img/arrow-bottom.jpg">
+                                        </div>
+                                </div>
+                                </th> 
+                                <th scope="col"> 
+                                    <div class="label-wrapper">
+                                            <div class="data-label">Total Time</div>
+                                            <div class="sorting-controls">
+                                                <img src="assets/img/arrow-top.jpg">
+                                                <img src="assets/img/arrow-bottom.jpg">
+                                            </div>
+                                    </div>
+                                    </th> 
+                                    
+
+
+
+                <th scope="col" colspan="2">
+                    <div class="label-wrapper">
+                            <div class="data-label"> Work Type</div>
+                            <div class="sorting-controls">
+                                <img src="assets/img/arrow-top.jpg">
+                                <img src="assets/img/arrow-bottom.jpg">
+                            </div>
+                        </div>
+                </th>
+                
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="timeEntry in timeEntryList">
+                    <td>{{timeEntry.employee_name}}</td>
+                    <td>{{timeEntry.date}}</td>
+                    <td>{{timeEntry.time_in}}</td>
+                    <td>{{timeEntry.time_out}}</td>
+                    <td ng-bind="calculateAndReturnTimeDifference(timeEntry.time_in, timeEntry.time_out)"></td>
+                    <td>{{timeEntry.work_type}}</td>
+                    <td ng-click="removeTimeEntry(timeEntry.id)">
+                        <span class="delete-item">
+                            <i class="fas fa-trash-alt"></i>
+                        </span>
+                    </td>
+                </tr>
+            </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        var input = $('.timeInput');
+        input.clockpicker({
+            autoclose: true
+        });
+    </script>
+
+    <style>
+        .timeInput {
+            width: 200px;
+            height: 50px;
+            padding-left: 20px;
+            font-size: 13px;
+        }
+
+        .supplier-form-indent li.field-label {
+            text-align: center !important;
+        }
+
+        .supplier-materials-form input[type=date] {
+            padding: 0.850rem .75rem;
+        }
+    </style>
+
+</div>

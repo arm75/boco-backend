@@ -1,0 +1,53 @@
+<div class="login-container" ng-controller="createUserController">
+
+    <div class="login-wrapper">
+        <h1><strong>BOCO</strong> Create New User</h1>
+        <div class="login-form">
+            <form ng-submit="createNewUser()">
+                <ul>
+                    <li>
+                        <input type="text"  class="form-control" ng-model="first_name" placeholder="Enter First Name" required>
+                    </li>
+
+                    <li>
+                        <input type="text"  class="form-control" ng-model="last_name" placeholder="Enter Last Name" required>
+                    </li>
+
+                    <li>
+                        <input type="text"  class="form-control" ng-model="username" placeholder="Enter User Name" required>
+                    </li>
+
+                    <li>
+                        <input type="email" class="form-control" placeholder="EMAIL ID" ng-model="email" pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}" required> 
+                    </li>
+                    <li>
+                        <input type="tel" ng-model="mobile_number"
+                               class="form-control telInput" 
+                               placeholder="Contact Number"
+                               ng-keyup="formatTelephoneNumber()"
+                               oninvalid="InvalidMsg(this);"
+                               oninput="InvalidMsg(this);"
+                               maxlength="12" required>
+                    </li>
+                    <li>
+                        <input type="submit" class="btn btn-default btn-blue2" />
+                    </li>
+                </ul>
+            </form>
+        </div>
+    </div>
+
+    <script src="/assets/js/script.js"></script>
+    <script>
+        window.InvalidMsg = function(textbox) {
+            if (textbox.value.trim().charAt(3) == '-' && textbox.value.trim().charAt(7) == "-" && textbox.value.trim().length == 12) {
+                textbox.setCustomValidity(''); 
+                return true;
+            };
+
+            textbox.setCustomValidity('Incorect Contact Number Format'); 
+        }
+
+    </script>
+
+</div>

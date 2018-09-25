@@ -1,0 +1,9 @@
+FROM python:latest
+ENV PYTHONPATH=/code/
+COPY . /code/
+RUN apt-get update 
+RUN apt-get install -y python python-setuptools python-pip libgdal-dev 
+RUN apt-get clean
+RUN pip install --upgrade pip
+RUN pip install -r /code/requirements.txt  
+RUN rm -rf /code/

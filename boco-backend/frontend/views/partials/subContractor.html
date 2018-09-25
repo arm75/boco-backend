@@ -1,0 +1,185 @@
+<div ng-controller="subContractorScreenDescriptionController">
+    <div class="searchCustomer-form custom-btn padlr-50" ng-if="!isSubContractorInEditMode">
+        <div class="add-customer">
+            <button class="btn btn-gray" ng-click="addNewSubContractor()" ng-show="isWorkOrderComplete">
+            Add New Sub Contractor
+            </button>
+        </div>
+    </div>
+    <div ng-show="isSubContractorInEditMode">
+        
+        <div class="searchCustomer-form custom-btn padlr-50">
+            <div class="searchCustomer-indent">
+                <form class="max-width450" ng-submit="searchSubContractor(1)">
+                    <input type="text" ng-model="searchValue" style="max-width: 250px; display: inline;" class="form-control" placeholder="Search Sub Contractor" list="dataListSubContractors" required>
+                    <datalist id="dataListSubContractors">
+                        <option ng-repeat="contractor in subContractorList">{{contractor.sub_contractor_name}}</option>
+                    </datalist>
+                    
+                    <input style="display: inline-block; max-width: 100px; padding-left: 0px; padding-right: 0px;" type="submit" class="btn btn-gray" value="Search" />
+                </form>
+            </div>
+        </div>
+        <form ng-submit="saveSubContractorButton()">
+            <div class="company-info">
+                <div class="company-title">
+                    <input type="text" ng-model="sub_contractor_details.sub_contractor_name" class="form-control" required placeholder="Name">
+                </div>
+            </div>
+            <div class="address-container">
+                <div class="address-col">
+                    <h3>ADDRESS</h3>
+                    <ul>
+                        <li>
+                            <div class="col-content">
+                                <div class="col-icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div class="colContent-indent">
+                                    <input type="text" ng-model="sub_contractor_details.address" class="form-control" placeholder="Address" required>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="col-content">
+                                <div class="col-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div class="colContent-indent">
+                                    <input type="text" pattern="[a-zA-Z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*" title="Contact's email (format: xxx@xxx.xxx)" ng-model="sub_contractor_details.email" class="form-control" placeholder="Email Id" required>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="col-content">
+                                <div class="col-icon">
+                                    <i class="fas fa-phone-square"></i>
+                                </div>
+                                <div class="colContent-indent">
+                                    <input type="tel" ng-model="sub_contractor_details.contact_number" 
+                                        class="form-control" 
+                                        placeholder="Contact Number" required
+                                        ng-keyup="formatTelephoneNumberForContractor()"
+                                        oninvalid="InvalidMsg(this);"
+                                        oninput="InvalidMsg(this);"
+                                        maxlength="12">
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="col-content">
+                                <div class="col-icon">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <div class="colContent-indent">
+                                    <input type="text" ng-model="sub_contractor_details.poc" class="form-control" placeholder="Point Of Contact" required>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="custom-btn padt-25">
+                            <input type="submit" class="btn btn-gray" value="Save" />
+                            <input type="button" class="btn btn-gray" value="Cancel" ng-click="cancelAddContractor()" style="margin-left: 10px;"/>
+                        </li>
+                    </ul>
+                </div>
+                <div class="map-container" id="googleMap2">
+                    <div map-lazy-load="https://maps.google.com/maps/api/js" ng-if="markerSubContractorPosition">
+                        <ng-map id="map" zoom="11" center="{{markerSubContractorPosition}}">
+                            <marker position="{{markerSubContractorPosition}}"></marker>
+                        </ng-map>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+    <div class="data-table-wrapper">
+        <div class="table-responsive">
+            <table class="table">
+                <thead class="thead-dark">
+                <tr>
+                    <th scope="col" ng-click="sortByField('sub_contractor_name')"> 
+                    <div class="label-wrapper">
+                            <div class="data-label"> Selected Sub Contractor Name</div>
+                            <div class="sorting-controls">
+                                <img src="assets/img/arrow-top.jpg" ng-click="sortByField('sub_contractor_name')" ng-show="subContractorNameSortOrder == -1">
+                                <img src="assets/img/arrow-bottom.jpg" ng-click="sortByField('sub_contractor_name')"  ng-show="subContractorNameSortOrder == 1">
+                                <img src="" ng-show="subContractorNameSortOrder == 0">
+                            </div>
+                    </div>
+                    </th>
+                    <th scope="col" ng-click="sortByField('address')">
+                            <div class="label-wrapper">
+                                <div class="data-label"> Address</div>
+                                <div class="sorting-controls">
+                                    <img src="assets/img/arrow-top.jpg" ng-click="sortByField('address')" ng-show="subContractorAddressSortOrder == -1">
+                                    <img src="assets/img/arrow-bottom.jpg" ng-click="sortByField('address')" ng-show="subContractorAddressSortOrder == 1">
+                                    <img src="" ng-show="subContractorAddressSortOrder == 0">
+                                </div>
+                            </div>
+                    </th>
+                    <th scope="col" ng-click="sortByField('email')">
+                        <div class="label-wrapper">
+                            <div class="data-label"> Email Id</div>
+                            <div class="sorting-controls">
+                                <img src="assets/img/arrow-top.jpg" ng-click="sortByField('cost')" ng-show="subContractorEmailSortOrder == -1">
+                                <img src="assets/img/arrow-bottom.jpg" ng-click="sortByField('cost')" ng-show="subContractorEmailSortOrder == 1">
+                                <img src="" ng-show="subContractorEmailSortOrder == 0">
+                            </div>
+                        </div>
+                    </th>
+
+                    <th scope="col" ng-click="sortByField('contact_number')">
+                        <div class="label-wrapper">
+                            <div class="data-label"> Contact Number</div>
+                            <div class="sorting-controls">
+                                <img src="assets/img/arrow-top.jpg" ng-click="sortByField('contact_number')" ng-show="contactNumberSortOrder == -1">
+                                <img src="assets/img/arrow-bottom.jpg" ng-click="sortByField('contact_number')" ng-show="contactNumberSortOrder == 1">
+                                <img src="" ng-show="contactNumberSortOrder == 0">
+                            </div>
+                        </div>
+                    </th>
+
+                    <th scope="col" colspan="" ng-click="sortByField('poc')">
+                        <div class="label-wrapper">
+                            <div class="data-label"> Contact</div>
+                            <div class="sorting-controls">
+                                <img src="assets/img/arrow-top.jpg" ng-click="sortByField('poc')" ng-show="pocSortOrder == -1">
+                                <img src="assets/img/arrow-bottom.jpg" ng-click="sortByField('poc')" ng-show="pocSortOrder == 1">
+                                <img src="" ng-show="pocSortOrder == 0">
+                            </div>
+                        </div>
+                    </th>
+                    <th scope="col" ng-show="isWorkOrderComplete">
+                        <div class="label-wrapper">
+                            <div class="data-label"> </div>
+                            <div class="sorting-controls"></div>
+                        </div>
+                    </th>
+                    <th scope="col">
+                        <div class="label-wrapper">
+                            <div class="data-label"></div>
+                            <div class="sorting-controls"></div>
+                        </div>
+                    </th>
+                    
+                </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="contractor in allSubContractor">
+                        <td ng-bind="contractor.sub_contractor_name"></td>
+                        <td ng-bind="contractor.address"></td>
+                        <td ng-bind="contractor.email"></td>
+                        <td ng-bind="contractor.contact_number"></td>
+                        <td ng-bind="contractor.poc"></td>
+                        <td ng-show="isWorkOrderComplete"><span class="delete-item" ng-click="removeSubContractor(contractor.id)"><i class="fas fa-trash-alt"></i></td>
+                        <td><input type="button" ng-click="showDialog(contractor, $event)" value="Show Map" /></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+</div>

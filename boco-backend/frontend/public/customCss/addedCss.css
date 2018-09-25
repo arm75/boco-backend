@@ -1,0 +1,30 @@
+.form-control {
+    text-transform: none !important;
+}
+
+input.create-work-order[type=date] {
+    padding-left: 50px !important;
+    padding-top: 13px !important;
+    padding-bottom: 13px !important;
+}
+
+.form-control:disabled {
+    color: black;
+}
+
+.content-wrapper {
+    background-color: white !important;
+}
+
+input.description-date[type=date] {
+    font-size: x-small;
+}
+
+.work-info .work-no {
+    font-size: 20px !important;
+}
+
+.loading-overlay-content {
+    top: 45% !important;
+    margin: auto;
+}

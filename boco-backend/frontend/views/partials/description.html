@@ -1,0 +1,148 @@
+<div id="descriptionPage">
+    <div class="inner-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-sm-6 col-xs-8">
+                    <div class="logo">
+                        <span>BOCO</span> Form Markup
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-6 col-xs-4 clearfix">
+                    
+
+                    <div class="login-link">
+                        <a href="#" ng-click="resetPassword()" style="margin-right: 20px;">Reset Password</a>
+                        <a href="#" ng-click="logoutUser()">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="gray-container">
+        <div class="container">
+            <div class="work-order-form">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="work-info">
+                            <div class="work-no">W.O. No. <strong ng-bind="work_order_num"></strong></div>
+                            Customer's PO# <strong ng-bind="customer_po_num"></strong><br>
+                            Work Order by <strong ng-bind="work_order_by"></strong><br>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <b style="font-size: 13px;">Date of Order:</b>
+                                <input type="text" style="font-size: 13px;" class="form-control description-date" placeholder="Date Work Started" ng-model="date_of_order" disabled>
+                            </div>
+                            <div class="col-md-6">
+                                <b style="font-size: 13px;">Date Work Started:</b>
+                                <input type="text" style="font-size: 13px;" class="form-control description-date" ng-model="date_work_started" disabled>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 custom-btn">
+                        <button class="btn btn-gray" ng-click="completeWorkOrder()" ng-show="isWorkOrderComplete">Complete Work Order</button>
+                    </div>
+                </div>
+            </div>
+            <div class="nav-wrapper">
+                <ul class="nav nav-pills nav-fill tabs">
+                    <li class="nav-item"><a href="javascript:void(0)" class="nav-link active" data-tab="tab-1">Description</a></li>
+                    <li class="nav-item"><a href="javascript:void(0)" class="nav-link" data-tab="tab-2">Customer</a></li>
+                    <li class="nav-item"><a href="javascript:void(0)" class="nav-link" data-tab="tab-3">Sub-Contractor</a></li>
+                    <li class="nav-item"><a href="javascript:void(0)" class="nav-link" data-tab="tab-4">Supplier</a></li>
+                    <li class="nav-item"><a href="javascript:void(0)" class="nav-link" data-tab="tab-5">Equipment Rental</a></li>
+                    <li class="nav-item"><a href="javascript:void(0)" class="nav-link" data-tab="tab-6">BOCO Stock</a></li>
+                    <li class="nav-item"><a href="javascript:void(0)" class="nav-link" data-tab="tab-7">BOCO Equipment</a></li>
+                    <li class="nav-item"><a href="javascript:void(0)" class="nav-link" data-tab="tab-8">Time Entry</a></li>
+                    <li class="nav-item"><a href="javascript:void(0)" class="nav-link" data-tab="tab-9">Signature</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /Header -->
+    <!-- content -->
+    <div class="content-wrapper">
+        <div class="container">
+            <!-- project description -->
+            <div class="project-description tab-content current" id="tab-1" ng-include="'./partials/descriptionView.html'"></div>
+            <!-- /project description -->
+
+            <!-- customer -->
+            <div class="customer tab-content" id="tab-2" ng-include="'./partials/customerView.html'"></div>
+            <!-- /customer -->
+
+            <!-- sub contractor -->               
+            <div class="customer tab-content" id="tab-3" ng-include="'./partials/subContractor.html'"></div>
+            <!-- /sub contractor -->
+
+            <!-- Supplier -->
+            <div class="supplier-container tab-content" id="tab-4" ng-include="'./partials/supplierDetails.html'"></div>
+            <!-- /Supplier -->
+
+            <!-- Equipment Rental -->
+            <div class="supplier-container tab-content" id="tab-5" ng-include="'./partials/equipmentRental.html'"></div>
+            <!-- /Equipment Rental -->
+
+            <!-- boco stock -->
+            <div class="supplier-container tab-content" id="tab-6" ng-include="'./partials/bocoStockDetails.html'"></div>
+            <!-- /boco stock -->
+
+            <!-- boco equipment -->
+            <div class="supplier-container tab-content" id="tab-7" ng-include="'./partials/bocoEquipmentDetails.html'"></div>
+            <!-- /boco equipment -->
+
+            <!-- time entry -->
+            <div class="supplier-container tab-content" id="tab-8" ng-include="'./partials/timeEntryDetails.html'"></div>
+            <!-- /time entry -->
+
+            <!-- Signature -->
+            <div class="supplier-container tab-content" id="tab-9" ng-include="'./partials/signatureDetails.html'"></div>
+            <!-- /Signature -->
+        </div>
+    </div>
+    <!-- /content -->
+    <!-- footer -->
+    <div class="inner-footer">
+        <div class="container">
+            <div class="footer-info">
+                <p class="footer-logo">
+                    BOCO,  Inc.
+                </p>
+                <p class="footer-des">
+                    Lorem ipsum dolor sit amet,<br>
+                    consectetur adipiscing elit .
+                </p>
+            </div>
+        </div>
+        <div class="footer-indent">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 copyright">
+                        © BOCO, Inc. 2018
+                    </div>
+                    <div class="col-md-6 align-right">
+                        <button class="btn btn-gray pageScollTop">
+                        TOP
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="/assets/js/script.js"></script>
+    <script>
+        window.InvalidMsg = function(textbox) {
+            if (textbox.value.trim().charAt(3) == '-' && textbox.value.trim().charAt(7) == "-" && textbox.value.trim().length == 12) {
+                textbox.setCustomValidity(''); 
+                return true;
+            };
+
+            textbox.setCustomValidity('Incorect Contact Number Format'); 
+        }
+
+    </script>
+
+</div>

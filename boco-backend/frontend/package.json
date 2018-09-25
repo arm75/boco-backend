@@ -1,0 +1,21 @@
+{
+    "name": "bocoproject",
+    "version": "0.0.0",
+    "description": "Integrate Node with sinple Angular Application",
+    "main": "server.js",
+    "author": {
+        "name": "Mayank Gupta",
+        "email": "MayankGupta688@gmail.com"
+    },
+    "dependencies": {
+        "body-parser": "^1.18.2",
+        "ejs": "^2.5.7",
+        "express": "^4.16.2",
+        "grunt": "^1.0.1",
+        "grunt-cli": "^1.2.0"
+    },
+    "devDependencies": {
+        "bower": "^1.8.2",
+        "grunt-nodemon": "^0.4.2"
+    }
+}

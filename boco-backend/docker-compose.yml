@@ -1,0 +1,24 @@
+version: '2'
+services:
+  sqlite3:
+    image: nouchka/sqlite3:latest
+    stdin_open: true
+    tty: true
+    volumes:
+       - ./db/:/root/db/
+  web:
+    build: .
+    ports:
+      - "5000:5000"
+    volumes:
+        - .:/code
+    links:
+      - sqlite3
+    environment:
+      - DJANGO_SETTINGS_MODULE=Boco.settings
+      - PYTHONPATH="/code/"
+    depends_on:
+    - sqlite3
+    command: bash -c "python /code/manage.py makemigrations && python /code/manage.py migrate && python /code/manage.py setup_boco_env && python /code/manage.py runserver 0.0.0.0:5000"
+    volumes:
+      - .:/code

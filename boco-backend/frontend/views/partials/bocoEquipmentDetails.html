@@ -1,0 +1,70 @@
+<div ng-controller="equipmentController">
+    <div class="supplier-materials-form">
+        <div class="section-title">
+            BOCO Equipment
+        </div> 
+
+        <form class="supplier-form-indent" ng-submit="addEquipmentData()" ng-show="isWorkOrderComplete">
+            <ul>
+                <li>
+                    <input ng-change="fillEquipmentData()" type="text" class="form-control" placeholder="Item Name" ng-model="item_name" required list="equipmentListArray">
+                    <datalist id="equipmentListArray">
+                        <option ng-repeat="equipment in equipmentList" >{{equipment.item_name}}</option>
+                    </datalist>
+                </li>
+                <li>
+                    <input type="number" step="0.01" class="form-control" placeholder="Cost" ng-model="cost" required>
+                </li>
+                    
+                <li class="custom-btn padlr-50">
+                    <button class="btn btn-gray" type="submit">ADD TO EQUIPMENT</button>
+                </li>
+
+            </ul>
+        </form>
+
+    </div>
+
+    <div class="data-table-wrapper">
+        <div class="table-responsive">
+            <table class="table">
+                <thead class="thead-dark">
+                <tr>
+                    <th scope="col" ng-click="sortByField('item_name')"> 
+                        <div class="label-wrapper">
+                            <div class="data-label"> Item Name</div>
+                            <div class="sorting-controls">
+                                <img src="assets/img/arrow-top.jpg" ng-click="sortByField('item_name')" ng-show="equipmentSortOrder == -1">
+                                <img src="assets/img/arrow-bottom.jpg" ng-click="sortByField('item_name')" ng-show="equipmentSortOrder == 1">
+                                <img src="" ng-click="sortByField('item_name')" ng-show="equipmentSortOrder == 0">
+                            </div>
+                        </div>
+                    </th> 
+                    <th scope="col" colspan="2" ng-click="sortByField('cost')">
+                        <div class="label-wrapper">
+                            <div class="data-label"> Cost</div>
+                            <div class="sorting-controls">
+                                <img src="assets/img/arrow-top.jpg" ng-click="sortByField('cost')" ng-show="equipmentCostSortOrder == -1">
+                                <img src="assets/img/arrow-bottom.jpg" ng-click="sortByField('cost')" ng-show="equipmentCostSortOrder == 1">
+                                <img src="" ng-click="sortByField('cost')" ng-show="equipmentCostSortOrder == 0">
+                            </div>
+                        </div>
+                    </th>
+                    
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="equipmentData in workOrderEquipmentInfo">
+                    <td>{{equipmentData.equipment.item_name}}</td>
+                    <td>{{equipmentData.equipment.cost}}</td>
+                    <td ng-show="isWorkOrderComplete">
+                        <span class="delete-item" ng-click="removeEquipment(equipmentData.equipment.id)">
+                            <i class="fas fa-trash-alt"></i>
+                        </span>
+                    </td>
+                </tr>
+            </tbody>
+            </table>
+        </div>
+    </div>
+</div>

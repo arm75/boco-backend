@@ -1,0 +1,25 @@
+<div class="login-container" id="screenshotTarget">
+        <div class="login-wrapper">
+            <h1><strong>BOCO</strong> Work Order Systems</h1>
+            <div class="login-form">
+                <form ng-submit="authenticateUserLogin()">
+                    <ul>
+                        <li><input type="text" class="form-control" ng-model="userName" placeholder="Enter User Name" required></li>
+                        <li><input type="password" class="form-control" ng-model="userPassword" placeholder="Enter User Password" required>
+                        <li>
+                            <button type="submit" class="btn btn-default btn-blue2" value="LOGIN">Login</button >
+                            <screenshot target="{{::'#screenshotTarget'}}" is-open="isOpen" toolbox-options="screenshotTargetOptions"></screenshot>
+                            
+                        </li>
+                        <li>
+                            <div class="d-flex flex-row" ng-click="createUser()">  
+                                <div class="form-link link-last" style="text-align: center;">
+                                    <a>Create New Account</a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </form>
+            </div>
+        </div>
+    </div>

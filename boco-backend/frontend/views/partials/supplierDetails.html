@@ -1,0 +1,78 @@
+<div ng-controller="supplierController">
+    <div class="supplier-materials-form">
+        <div class="section-title">
+            Supplier Materials
+        </div>
+
+        <form ng-submit="addSupplierData()" class="supplier-form-indent" ng-show="isWorkOrderComplete">
+            <ul>
+                <li>
+                    <input type="text" class="form-control" placeholder="Search Supplier" ng-change="fillSupplierData()" list="supplierList" ng-model="company_name" required>
+                    <datalist id="supplierList">
+                        <option ng-repeat="supplier in supplierList" >{{supplier.company_name}}</option>
+                    </datalist>
+                </li>
+                <li>
+                    <input type="number" step="0.01" oninvalid="InvalidNonNumeric(this);" ng-change="fillSupplierData()" oninput="InvalidNonNumeric(this);" class="form-control" ng-model="ticket_number" placeholder="Ticket Number" required list="supplierTicketList">
+                </li>
+                <li>
+                    <input type="number" step="0.01" class="form-control" ng-model="cost" placeholder="Cost" required>
+                </li>
+                <li class="custom-btn padlr-50">
+                    <input class="btn btn-gray" type="submit" value="Add Supplier"/>
+                </li>
+
+            </ul>
+        </form>
+    </div>
+
+    <div class="data-table-wrapper">
+        <div class="table-responsive">
+            <table class="table">
+                <thead class="thead-dark">
+                <tr>
+                    <th scope="col" ng-click="sortByField('company_name')"> 
+                    <div class="label-wrapper">
+                            <div class="data-label"> Selected Suppliers</div>
+                            <div class="sorting-controls">
+                                <img src="assets/img/arrow-top.jpg" ng-click="sortByField('company_name')" ng-show="supplierSortOrder == -1">
+                                <img src="assets/img/arrow-bottom.jpg" ng-click="sortByField('company_name')"  ng-show="supplierSortOrder == 1">
+                                <img src="" ng-show="supplierSortOrder == 0">
+                            </div>
+                    </div>
+                    </th>
+                    <th scope="col" ng-click="sortByField('ticket_number')">
+                            <div class="label-wrapper">
+                                    <div class="data-label"> Ticket Number</div>
+                                    <div class="sorting-controls">
+                                        <img src="assets/img/arrow-top.jpg" ng-click="sortByField('ticket_number')" ng-show="supplierTicketSortOrder == -1">
+                                        <img src="assets/img/arrow-bottom.jpg" ng-click="sortByField('ticket_number')" ng-show="supplierTicketSortOrder == 1">
+                                        <img src="" ng-show="supplierTicketSortOrder == 0">
+                                    </div>
+                            </div>
+                    </th>
+                    <th scope="col" colspan="2" ng-click="sortByField('cost')">
+                        <div class="label-wrapper">
+                                <div class="data-label"> Cost</div>
+                                <div class="sorting-controls">
+                                    <img src="assets/img/arrow-top.jpg" ng-click="sortByField('cost')" ng-show="supplierCostSortOrder == -1">
+                                    <img src="assets/img/arrow-bottom.jpg" ng-click="sortByField('cost')" ng-show="supplierCostSortOrder == 1">
+                                    <img src="" ng-show="supplierCostSortOrder == 0">
+                                </div>
+                        </div>
+                    </th>
+                    
+                </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="supplierData in workOrderSupplierInfo">
+                        <td ng-bind="supplierData.supplier.company_name">{{supplier.company_name}}</td>
+                        <td ng-bind="supplierData.supplier.ticket_number"></td>
+                        <td ng-bind="supplierData.supplier.cost"></td>
+                        <td ng-show="isWorkOrderComplete"><span class="delete-item" ng-click="removeSupplier(supplierData.supplier.id)"><i class="fas fa-trash-alt"></i></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

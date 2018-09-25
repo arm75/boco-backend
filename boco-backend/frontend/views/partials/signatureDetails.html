@@ -1,0 +1,61 @@
+<div class="supplier-materials-form" ng-controller="signatureController">
+    <div class="supplier-materials-form">
+
+        <div class="section-title">
+            Complete Work Order
+        </div> 
+
+        <div class="complete-work-order">
+            <div class="section-sub-title">
+                    Disclaimer and Warranty Info
+            </div>
+            <div class="textarea-container">
+                <textarea cols="5" rows="6" class="form-control">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam auctor blandit tristique. Suspendisse bibendum non orci a dapibus. Sed leo velit, sodales eu tempus ac, ultrices sed leo. Sed tortor risus, aliquam eu mi in, pharetra suscipit tellus. Nulla sagittis rutrum efficitur. Integer tempus tempor mi, non facilisis augue sodales non.  Suspendisse condimentum lectus sed sagittis cursus. Sed feugiat nunc eu augue pulvinar, a hendrerit urna tincidunt. Nullam quis arcu vitae enim pretium dapibus.Aliquam pellentesque tristique neque et tempor. Suspendisse ex libero, ultricies ut ornare sed, accumsan in est. Sed viverra vel metus sed mollis. Sed nibh urna, vestibulum eu sodales non, malesuada eu mauris. Mauris est nisl, mattis in feugiat lacinia, dictum eget neque. Maecenas commodo eros sed feugiat sodales. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Ut a mollis mi, suscipit feugiat mi. Praesent nec erat commodo, lobortis magna vel, imperdiet diam. Phasellus nec ex ac odio vehicula aliquet. Aenean at lobortis enim. Aenean volutpat bibendum lorem, sit amet hendrerit purus mattis non. Nullam rutrum rutrum aliquet. Suspendisse maximus, nibh vitae ultrices sollicitudin, ipsum enim venenatis est, a euismod lorem sapien vel massa. Mauris ac odio mauris. Nulla aliquam, nibh volutpat ullamcorper elementum, est enim egestas eros, a tincidunt justo mi eget diam. Mauris semper nisl eu faucibus dapibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam auctor blandit tristique. Suspendisse bibendum non orci a dapibus. Sed leo velit, sodales eu tempus ac, ultrices sed leo. Sed tortor risus, aliquam eu mi in, pharetra suscipit tellus. Nulla sagittis rutrum efficitur. Integer tempus tempor mi, non facilisis augue sodales non.  Suspendisse condimentum lectus sed sagittis cursus. Sed feugiat nunc eu augue pulvinar, a hendrerit urna tincidunt. Nullam quis arcu vitae enim pretium dapibus.Aliquam pellentesque tristique neque et tempor. Suspendisse ex libero, ultricies ut ornare sed, accumsan in est. Sed viverra vel metus sed mollis. Sed nibh urna, vestibulum eu sodales non, malesuada eu mauris. Mauris est nisl, mattis in feugiat lacinia, dictum eget neque. Maecenas commodo eros sed feugiat sodales. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Ut a mollis mi, suscipit feugiat mi. Praesent nec erat commodo, lobortis magna vel, imperdiet diam. Phasellus nec ex ac odio vehicula aliquet. Aenean at lobortis enim. Aenean volutpat bibendum lorem, sit amet hendrerit purus mattis non. Nullam rutrum rutrum aliquet. Suspendisse maximus, nibh vitae ultrices sollicitudin, ipsum enim venenatis est, a euismod lorem sapien vel massa. Mauris ac odio mauris. Nulla aliquam, nibh volutpat ullamcorper elementum, est enim egestas eros, a tincidunt justo mi eget diam. Mauris semper nisl eu faucibus dapibus.</textarea>
+            </div>
+
+            <div class="additional-comments">
+                <label for="additionalComments">
+                    <input type="checkbox" id="additionalComments"> Additional Comments
+                </label>
+            </div>
+
+            <div class="comments-form-container row">
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <textarea class="form-control" placeholder="Comments" ng-disabled="!isEditMode" ng-model="comments"></textarea>
+                    <div class="flex custom-btn" ng-show="isWorkOrderComplete">
+                        <button class="btn btn-gray" ng-show="isEditMode" ng-click="setSignatureData()">Save</button>
+                        <button class="btn btn-gray" ng-show="!isEditMode" ng-click="editSignatureData()">Edit</button>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-6 col-xs-12 customer-signature">
+                        <div class="card">
+                            <div class="card-header">
+                                Customer Signature
+                            </div>
+                            <div class="card-body min-height100" id="signature" ng-show="signature_bs64_string.length == 0">
+                                
+                            </div>
+                            <img style="margin-top: 20px" ng-show="signature_bs64_string.length > 0" id="signatureImage">
+                        </div>
+                </div>
+
+
+
+            </div>
+        </div>
+
+    </div>
+    
+    <script>
+        window.createSignaturePad = function() {
+            var signatureDiv = $("#signature").jSignature({'width':500, 'height': 120});
+        };
+
+        window.createSignaturePad();
+
+        window.getPNGData = function() {
+            alert($("#signature").jSignature("getData", "image"));
+        }
+    
+    </script>
+</div>

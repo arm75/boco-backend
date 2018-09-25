@@ -1,0 +1,71 @@
+
+
+
+
+
+@media (max-width: 990px) {
+    .work-info {font-size: 14px;}
+    .work-info .work-no {font-size: 20px;}
+    .select-daterange label {font-size: 12px;}
+    .select-daterange label:after {background-size: contain; width: 14px; top: 23px;}
+    .select-daterange .form-control {padding-right: 20px; font-size: 10px;}
+    .custom-btn .btn {padding: 9px 0;}
+    .gray-container .nav-link {padding: 7px 8px;}
+    .gray-container .nav-wrapper li {font-size: 12px; width: calc(100% / 5);}
+    .project-description {width: 100%;}
+    .searchCustomer-indent .form-control,
+    .supplier-form-indent .form-control,
+    .supplier-form-indent select.form-control:not([size]):not([multiple]) {height: 38px;}
+}
+
+@media (max-width: 767px) {
+    .work-info,
+    .select-daterange {padding-bottom: 20px;}
+    .gray-container .nav-wrapper li {font-size: 12px; width: calc(100% / 3);}
+    .searchCustomer-indent {padding-right: 12px;}
+    .company-info .company-title span,
+    .project-description .title-col {font-size: 15px;}
+    .project-des-form .form-control {font-size: 12px;}
+    .searchCustomer-indent .form-control,
+    .address-col .col-content .colContent-indent input {font-size: 12px;}
+    .address-col h3 {font-size: 13px;}
+    .custom-btn.padlr-50 .btn-gray {padding-left: 12px; padding-right: 12px;}
+    .data-table-wrapper .table .thead-dark th,
+    .data-table-wrapper .table td {font-size: 12px; vertical-align: middle;}
+    .time-entry-form li{min-width: calc(100% / 4);}
+}
+
+@media (max-width: 640px) {
+    .address-container {display: block;}
+    .map-container {margin-top: 20px;}
+    .address-col {padding-right: 0;}
+    .searchCustomer-form {display: block;}
+    .add-customer {padding-top: 16px;}
+    .searchCustomer-indent .max-width450 {max-width: 100%;}
+    .searchCustomer-indent {padding-right: 0;}
+    .content-wrapper {padding: 40px 0;}
+    .supplier-form-indent ul {display: block;}
+    .supplier-form-indent li {padding: 8px 0;}
+    .data-table-wrapper {padding-top: 20px;}
+    .supplier-form-indent li.field-label {max-width: inherit; text-align: left;}
+}
+
+@media (max-width: 574px) {
+    .customer-signature {padding-top: 20px;}
+}
+
+
+@media (max-width: 480px) {
+    .login-wrapper h1 { font-size: 24px;}
+    .login-wrapper,
+    .logout-link2 {padding: 0 16px;}
+    .inner-footer {padding: 20px 0;}
+    .inner-footer .footer-logo {font-size: 20px;}
+    .work-info .work-no {font-size: 14px;}
+    .inner-header .logo {font-size: 16px;}
+}
+
+@media (max-width: 360px) {
+    .login-wrapper h1 { font-size: 20px;}
+    .gray-container .nav-wrapper li {font-size: 12px; width: calc(100% / 1);}
+}

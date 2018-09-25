@@ -1,0 +1,47 @@
+<div class="login-container">
+    <div ng-controller="logoutController" class="login-link" style="position: fixed; top: 5%; right: 5%;">
+        <a href="#" ng-click="resetPassword()" style="margin-right: 20px;">Reset Password</a>
+        <a href="#" ng-click="logoutUser()">Logout</a>
+    </div>
+    <div class="login-wrapper">
+        <h1><strong>BOCO</strong> Work Order Systems</h1>
+        <div class="login-form">
+            <form ng-submit="createWorkOrder()">
+                <ul>
+                    <li>
+                        <input type="text" disabled class="form-control" ng-model="workOrderNumber" placeholder="W.O. NO." required>
+                    </li>
+                    <li>
+                        <input type="text" class="form-control" placeholder="Customer's PO#" ng-model="poNumber" required> 
+                    </li>
+                    <li>
+                        <input type="text" class="form-control" placeholder="Work Order by" ng-model="workOrderBy" required>
+                    </li>
+                    <li>
+                        <input class="form-control create-work-order date-picker" 
+                               placeholder="Date of Order" 
+                               ng-model="dateOfOrder" 
+                               type="text" 
+                               onfocus="(this.type='date')" 
+                               onblur="if(!this.value)this.type='text'"
+                               required>
+                    </li>
+                    <li>
+                        <input type="text" 
+                               onfocus="(this.type='date')" 
+                               onblur="if(!this.value)this.type='text'"
+                               class="form-control create-work-order date-picker" 
+                               placeholder="Date Work Started" 
+                               ng-model="dateWorkStarted" required>
+                    </li>
+                    <li>
+                        <input type="submit" class="btn btn-default btn-blue2" />
+                    </li>
+                </ul>
+            </form>
+        </div>
+    </div>
+
+    <script src="assets/js/script.js"></script>
+
+</div>

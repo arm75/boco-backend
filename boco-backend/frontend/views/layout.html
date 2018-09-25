@@ -1,0 +1,73 @@
+<!doctype html>
+
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>BOCO</title>
+
+        <base href="/">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="customCss/font.css" rel="stylesheet">
+        
+        <link rel="stylesheet" type="text/css" media="screen" href="assets/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css">
+        <link rel="stylesheet" type="text/css" media="screen" href="assets/css/responsive.css">
+        <link rel="stylesheet" type="text/css" media="screen" href="customCss/sweetalert.css">
+        <link rel="stylesheet" type="text/css" href="customCss/loader.css">
+        <link rel="stylesheet" type="text/css" media="screen" href="customCss/addedCss.css">
+        <link rel="stylesheet" type="text/css" media="screen" href="customCss/bootstrapTimePicker.css"></script>
+        <link rel="stylesheet" type="text/css" media="screen" href="clockpicker/clockpicker.css"></script>
+        <link rel="stylesheet" type="text/css" media="screen" href="clockpicker/standalone.css"></script>
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.min.css">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.0/moment.min.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="scripts/jquery-loading/dist/jquery.loading.js"></script>
+        <script src="assets/bootstrap/js/bootstrap.bundle.js"></script>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-aria.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-messages.min.js"></script>
+
+        <!-- Angular Material Library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.min.js"></script>
+        
+        
+        <script src="lib/requirejs/require.js" data-main="appScripts/initialiizeAngularApplication.js"></script>
+
+        <script>
+    
+            window.InvalidNonNumeric = function(textbox) {
+                if(Number(textbox.value) == NaN) {
+                    textbox.setCustomValidity('Please Enter Numeric Number'); 
+                    return true;
+                } 
+                    
+                textbox.setCustomValidity(''); 
+            }
+                
+        </script>
+
+    </head>
+        <body>
+
+            <div ng-view id="mainDiv" ng-controller="mainController"></div>
+
+            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDeCCiziPIOQreKQcyevTWywDNlhoV2u-s"></script>
+            <script src="alertScript/sweetalert.js"></script>
+            <script src="alertScript/alertCode.js"></script> 
+            <script src="assets/js/script.js"></script>
+            <script defer async src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+            <script src="clockpicker/clockpicker.js" defer></script>
+
+            <script src="scripts/Signature/flashcanvas.js" defer></script>
+            <script src="scripts/Signature/jSignature.min.js" defer></script>
+            
+            
+        </body>
+</html> 

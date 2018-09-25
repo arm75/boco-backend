@@ -1,0 +1,25 @@
+<div>
+    <div class="title-col">
+        Project Description
+    </div>
+    <form class="project-des-form" ng-submit="$parent.saveDescriptionButton()">
+        <ul>
+            <li>
+                <textarea required cols="4" rows="4" class="form-control textarea-minheight1" placeholder="Project Description" ng-model="$parent.description" ng-disabled="$parent.isInNonEditModeOfDescription"></textarea>
+            </li>
+            <li>
+                <textarea required cols="4" rows="4" class="form-control textarea-minheight2" placeholder="Any Other Requirements" ng-model="$parent.other_requirements" ng-disabled="$parent.isInNonEditModeOfDescription"></textarea>
+            </li>
+            <li>
+                <div class="row custom-btn">
+                    <div class="col-md-6" ng-show="$parent.isInNonEditModeOfDescription == true">
+                        <input type="button" ng-show="isWorkOrderComplete" class="btn btn-lightgray" ng-click="$parent.editDescriptionButton()" value="Edit" />
+                    </div>
+                    <div class="col-md-6" ng-show="$parent.isInNonEditModeOfDescription == false">
+                        <input type="submit" ng-show="isWorkOrderComplete" class="btn btn-gray" value="Save" />
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </form>
+</div>

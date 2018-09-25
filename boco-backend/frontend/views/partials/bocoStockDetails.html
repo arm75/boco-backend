@@ -1,0 +1,97 @@
+<div ng-controller="stockController">
+    <div class="supplier-materials-form">
+        <div class="section-title">
+            BOCO Stock
+        </div>
+        <div class="radio-btn-group" ng-show="isWorkOrderComplete">
+            <label for="electricals">
+            <input type="radio" id="electricals" ng-model="stock_type" value="ELECTRICAL">
+            Electrical
+            </label>
+            <label for="mechanicals">
+            <input type="radio"  id="mechanicals" ng-model="stock_type" value="MECHANICAL">
+            Mechanical
+            </label>
+        </div>
+        <form class="supplier-form-indent" ng-submit="addStockData()" ng-show="isWorkOrderComplete">
+            <ul>
+                <li>
+                    <input ng-change="fillStockData()" type="text" class="form-control" placeholder="Search Items" ng-model="item_name" required list="stockListArray">
+                    <datalist id="stockListArray">
+                        <option ng-if="stock.stock_type == stock_type" ng-repeat="stock in stockList" >{{stock.item_name}}</option>
+                    </datalist>
+                </li>
+                <li>
+                    <input type="number" step="0.01" class="form-control" placeholder="Number of Items" ng-model="number_of_items" required>
+                </li>
+                <li>
+                    <input type="number" step="0.01" class="form-control" placeholder="Cost per Unit" ng-model="cost" required>
+                </li>
+                <li class="custom-btn padlr-50">
+                    <button class="btn btn-gray" type="submit">ADD TO STOCK</button>
+                </li>
+            </ul>
+        </form>
+    </div>
+    <div class="data-table-wrapper">
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">
+                        <div class="label-wrapper" ng-click="sortByField('item_name')">
+                            <div class="data-label"> Selected Items</div>
+                            <div class="sorting-controls">
+                                <img src="assets/img/arrow-top.jpg" ng-click="sortByField('item_name')" ng-show="itemSortOrder == -1">
+                                <img src="assets/img/arrow-bottom.jpg" ng-click="sortByField('item_name')" ng-show="itemSortOrder == 1">
+                                <img src="" ng-show="itemSortOrder == 0">
+                            </div>
+                        </div>
+                    </th>
+                    <th scope="col">
+                        <div class="label-wrapper" ng-click="sortByField('stock_type')">
+                            <div class="data-label"> Type</div>
+                            <div class="sorting-controls">
+                                <img src="assets/img/arrow-top.jpg" ng-click="sortByField('stock_type')" ng-show="typeSortOrder == -1">
+                                <img src="assets/img/arrow-bottom.jpg" ng-click="sortByField('stock_type')" ng-show="typeSortOrder == 1">
+                                <img src="" ng-show="typeSortOrder == 0">
+                            </div>
+                        </div>
+                    </th>
+                    <th scope="col">
+                        <div class="label-wrapper" ng-click="sortByField('number_of_items')">
+                            <div class="data-label"> Number of Items</div>
+                            <div class="sorting-controls">
+                                <img src="assets/img/arrow-top.jpg" ng-click="sortByField('number_of_items')" ng-show="numberSortOrder == -1">
+                                <img src="assets/img/arrow-bottom.jpg" ng-click="sortByField('number_of_items')" ng-show="numberSortOrder == 1">
+                                <img src="" ng-show="numberSortOrder == 0">
+                            </div>
+                        </div>
+                    </th>
+                    <th scope="col" colspan="2" ng-click="sortByField('cost')">
+                        <div class="label-wrapper">
+                            <div class="data-label"> Cost</div>
+                            <div class="sorting-controls">
+                                <img src="assets/img/arrow-top.jpg" ng-click="sortByField('cost')" ng-show="costSortOrder == -1">
+                                <img src="assets/img/arrow-bottom.jpg" ng-click="sortByField('cost')" ng-show="costSortOrder == 1">
+                                <img src="" ng-show="costSortOrder == 0">
+                            </div>
+                        </div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="stockData in workOrderStockInfo">
+                    <td>{{stockData.stocks.item_name}}</td>
+                    <td>{{stockData.stocks.stock_type.charAt(0).toUpperCase() + stockData.stocks.stock_type.slice(1).toLowerCase()}}</td>
+                    <td>{{stockData.stocks.number_of_items}}</td>
+                    <td>{{stockData.stocks.cost}}</td>
+                    <td ng-show="isWorkOrderComplete">
+                        <span class="delete-item" ng-click="removeStock(stockData.stocks.id)">
+                        <i class="fas fa-trash-alt"></i>
+                        </span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

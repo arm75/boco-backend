@@ -1,0 +1,33 @@
+{
+  "name": "AngularIntegrationWithNode",
+  "description": "Integrate Node with sinple Angular Application",
+  "main": "server.js",
+  "authors": [
+    "Mayank Gupta"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/learn-javascript-concepts/NodeIntegarationWithAngular",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/lib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.6.9",
+    "angular-route": "^1.6.9",
+    "requirejs": "^2.3.5",
+    "angular-cookies": "^1.6.9",
+    "angular-screenshot": "^0.4.1",
+    "jquery": "^3.3.1",
+    "ngstorage": "^0.3.11",
+    "angular-google-map": "*",
+    "bower": "*",
+    "install": "^1.0.4",
+    "angular-loading-overlay": "^1.1.1",
+    "jquery-loading": "^1.3.0",
+    "bootstrap-timepicker": "^0.5.2"
+  }
+}

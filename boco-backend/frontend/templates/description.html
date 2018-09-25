@@ -1,0 +1,1298 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>BOCO</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- google font api -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,600i,700,800" rel="stylesheet">
+    
+    <!-- bootstrap css -->
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/bootstrap/css/bootstrap.min.css">
+
+    <!-- plugin css  -->
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/plugins/date-picker/bootstrap-datepicker3.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/easyautocomplete/easy-autocomplete.min.css">
+    <link repl="stylesheet" type="text/css" href="assets/plugins/toast-notifications/css/jquery.toast.css">
+
+    <!-- layout css -->
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/responsive.css">
+    
+</head>
+<body class="inner-pages">
+
+    <!-- Toast Notification -->
+     
+
+        <div class="alert alert-warning alert-dismissible fade show" role="alert1">
+            <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+            <button type="button" class="close" data-dismiss="alert1" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+
+        <div class="alert alert-danger alert-dismissible fade show" role="alert2">
+            <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+            <button type="button" class="close" data-dismiss="alert2" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+
+        <div class="alert alert-success alert-dismissible fade show" role="alert3">
+            <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+            <button type="button" class="close" data-dismiss="alert3" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+          
+    <!-- /Toast Notification -->
+
+    
+    <!-- Header -->
+    <div class="inner-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-sm-6 col-xs-8 col-8">
+                    <div class="logo">
+                            <span>BOCO</span> Form Markup
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-6 col-xs-4 col-4 clearfix">
+                    <div class="login-link">
+                        <a href="#">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="gray-container">
+        <div class="container">
+            <div class="work-order-form">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="work-info">
+                            <div class="work-no">W.O. No. <strong>374846</strong></div>
+                            Customer's PO# <strong>745907454</strong><br>
+                            Work Order by <strong>Jim Moore</strong><br>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 select-daterange">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Date of Order:</label>
+                                <input type="text" class="form-control date-picker" value="01/01/2018" readonly disabled>
+                            </div>  
+
+                            <div class="col-md-6">
+                                    <label>Date of Order:</label>
+                                    <input type="text" class="form-control date-picker" value="04/01/2018" readonly disabled>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 custom-btn">
+                        <button class="btn btn-gray">Complete Work Order</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="nav-wrapper">
+                <ul class="nav nav-pills nav-fill tabs">
+                    <li class="nav-item"><a href="javascript:void(0)" class="nav-link active" data-tab="tab-1">Description</a></li>
+                    <li class="nav-item"><a href="javascript:void(0)" class="nav-link" data-tab="tab-2">Customer</a></li>
+                    <li class="nav-item"><a href="javascript:void(0)" class="nav-link" data-tab="tab-3">Sub-Contractor</a></li>
+                    <li class="nav-item"><a href="javascript:void(0)" class="nav-link" data-tab="tab-4">Supplier</a></li>
+                    <li class="nav-item"><a href="javascript:void(0)" class="nav-link" data-tab="tab-5">Equipment Rental</a></li>
+                    <li class="nav-item"><a href="javascript:void(0)" class="nav-link" data-tab="tab-6">BOCO Stock</a></li>
+                    <li class="nav-item"><a href="javascript:void(0)" class="nav-link" data-tab="tab-7">BOCO Equipment</a></li>
+                    <li class="nav-item"><a href="javascript:void(0)" class="nav-link" data-tab="tab-8">Time Entry</a></li>
+                    <li class="nav-item"><a href="javascript:void(0)" class="nav-link" data-tab="tab-9">Signature</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /Header -->
+
+
+    <!-- content -->
+    <div class="content-wrapper">
+        <div class="container">
+            <!-- project description -->
+            <div class="project-description tab-content current" id="tab-1">
+                <div class="title-col">
+                    Project Description
+                </div>
+                <div class="project-des-form">
+                    <ul>
+                        <li>
+                            <textarea cols="4" rows="4" class="form-control textarea-minheight1" placeholder="ADD PROJECT DESCRIPTION"></textarea>
+                        </li>
+
+                        <li>
+                            <textarea cols="4" rows="4" class="form-control textarea-minheight2" placeholder="ANY OTHER REQUIREMENTS"></textarea>
+                        </li>
+
+                        <li>
+                            <div class="row custom-btn">
+                                <div class="col-md-6 col-sm-6 col-xs-6 col">
+                                    <button type="submit" class="btn btn-lightgray">EDIT</button>
+                                </div>
+                                <div class="col-md-6 col-sm-6 col-xs-6 col">
+                                    <button type="submit" class="btn btn-gray">SAVE</button>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- /project description -->
+
+            <!-- customer -->
+                <div class="customer tab-content" id="tab-2">
+                    <div class="searchCustomer-form custom-btn padlr-50">
+                        <div class="searchCustomer-indent">
+                            <div class="max-width450">
+                                <input type="text" class="form-control autoComplete" placeholder="Search Customer">
+                                <button class="btn btn-gray">SEARCH</button>
+                            </div>
+                        </div>
+
+                        <div class="add-customer">
+                            <button class="btn btn-gray">
+                                ADD NEW CUSTOMER
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="company-info">
+                        <div class="company-title">
+                            <span>ABC Company Name</span>
+                            <div class="edit-link">Edit</div>
+                        </div>
+                    </div>
+
+                    <div class="address-container">
+                        <div class="address-col">
+                            <h3>ADDRESS</h3>
+                            <ul>
+                                <li>
+                                    <div class="col-content">
+                                        <div class="col-icon">
+                                            <i class="fas fa-map-marker-alt"></i>
+                                        </div>
+                                        <div class="colContent-indent">
+                                            <input type="text" value="23 Crescent Road Mount Pleasant, 3452" class="form-control">
+                                        </div>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <div class="col-content">
+                                        <div class="col-icon">
+                                            <i class="fas fa-envelope"></i>
+                                        </div>
+                                        <div class="colContent-indent">
+                                            <input type="text" value="contact_name@company.com" class="form-control">
+                                        </div>
+                                    </div>
+                                   
+                                </li>
+
+                                <li>
+                                    <div class="col-content">
+                                        <div class="col-icon">
+                                            <i class="fas fa-phone-square"></i>
+                                        </div>
+                                        <div class="colContent-indent">
+                                            <input type="text" value="00293 038 3948" class="form-control">
+                                        </div>
+                                    </div>
+                                    
+                                </li>
+
+                                <li>
+                                    <div class="col-content">
+                                        <div class="col-icon">
+                                            <i class="fas fa-user"></i>
+                                        </div>
+                                        <div class="colContent-indent">
+                                            <input type="text" value="Jim Moore, John M. K." class="form-control">
+                                        </div>
+                                    </div>
+                                   
+                                </li>
+
+                                <li class="custom-btn padt-25">
+                                    <button class="btn btn-lightgray">EDIT</button>
+                                    <button class="btn btn-gray">SAVE</button>
+
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="map-container" id="googleMap">
+
+                        </div>
+
+                    </div>
+
+                </div>
+            <!-- /customer -->
+
+            <!-- sub contractor -->               
+                <div class="customer tab-content" id="tab-3">
+                    <div class="searchCustomer-form custom-btn padlr-50">
+                        <div class="searchCustomer-indent">
+                            <div class="max-width450">
+                                <input type="text" class="form-control autoComplete" placeholder="Search Customer">
+                                <button class="btn btn-gray">SEARCH</button>
+                            </div>
+                        </div>
+
+                        <div class="add-customer">
+                            <button class="btn btn-gray">
+                                ADD NEW CUSTOMER
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="company-info">
+                        <div class="company-title">
+                            <span>ABC Company Name</span>
+                            <div class="edit-link">Edit</div>
+                        </div>
+                    </div>
+
+                    <div class="address-container">
+                        <div class="address-col">
+                            <h3>ADDRESS</h3>
+                            <ul>
+                                <li>
+                                    <div class="col-content">
+                                        <div class="col-icon">
+                                            <i class="fas fa-map-marker-alt"></i>
+                                        </div>
+                                        <div class="colContent-indent">
+                                            <input type="text" value="23 Crescent Road Mount Pleasant, 3452" class="form-control">
+                                        </div>
+                                    </div>
+                                     
+                                </li>
+
+                                <li>
+                                    <div class="col-content">
+                                        <div class="col-icon">
+                                            <i class="fas fa-envelope"></i>
+                                        </div>
+                                        <div class="colContent-indent">
+                                            <input type="text" value="contact_name@company.com" class="form-control">
+                                        </div>
+                                    </div>
+                                     
+                                </li>
+
+                                <li>
+                                    <div class="col-content">
+                                        <div class="col-icon">
+                                            <i class="fas fa-phone-square"></i>
+                                        </div>
+                                        <div class="colContent-indent">
+                                            <input type="text" value="00293 038 3948" class="form-control">
+                                        </div>
+                                    </div>
+                                    
+                                </li>
+
+                                <li>
+                                    <div class="col-content">
+                                        <div class="col-icon">
+                                            <i class="fas fa-user"></i>
+                                        </div>
+                                        <div class="colContent-indent">
+                                            <input type="text" value="Jim Moore, John M. K." class="form-control">
+                                        </div>
+                                    </div>
+                                     
+                                </li>
+
+                                <li class="custom-btn padt-25">
+                                    <button class="btn btn-lightgray">EDIT</button>
+                                    <button class="btn btn-gray">SAVE</button>
+
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="map-container" id="googleMap2">
+
+                        </div>
+
+                    </div>
+
+                </div>
+            <!-- /sub contractor -->
+
+            <!-- Supplier -->
+                <div class="supplier-container tab-content" id="tab-4">
+                    <div class="supplier-materials-form">
+                        <div class="section-title">
+                            Supplier Materials
+                        </div>
+
+                        <div class="supplier-form-indent">
+                            <ul>
+                                <li>
+                                    <input type="text" class="form-control" placeholder="Search Supplier">
+                                </li>
+                                <li>
+                                    <input type="text" class="form-control" placeholder="Ticket Number">
+                                </li>
+                                <li>
+                                    <input type="text" class="form-control" placeholder="Cost">
+                                </li>
+                                <li class="custom-btn padlr-50">
+                                    <button class="btn btn-gray" type="submit">
+                                        ADD TO SUPPLIER
+                                    </button>
+                                </li>
+
+                            </ul>
+                        </div>
+
+                    </div>
+
+                    <div class="data-table-wrapper">
+                        <div class="table-responsive">
+                        <table class="table">
+                            <thead class="thead-dark">
+                              <tr>
+                                <th scope="col"> 
+                                   <div class="label-wrapper">
+                                        <div class="data-label"> Selected Suppliers</div>
+                                        <div class="sorting-controls">
+                                            <img src="assets/img/arrow-top.jpg">
+                                            <img src="assets/img/arrow-bottom.jpg">
+                                        </div>
+                                   </div>
+                                </th>
+                                <th scope="col">
+                                        <div class="label-wrapper">
+                                                <div class="data-label"> Ticket Number</div>
+                                                <div class="sorting-controls">
+                                                    <img src="assets/img/arrow-top.jpg">
+                                                    <img src="assets/img/arrow-bottom.jpg">
+                                                </div>
+                                           </div>
+                                </th>
+                                <th scope="col" colspan="2">
+                                    <div class="label-wrapper">
+                                            <div class="data-label"> Cost</div>
+                                            <div class="sorting-controls">
+                                                <img src="assets/img/arrow-top.jpg">
+                                                <img src="assets/img/arrow-bottom.jpg">
+                                            </div>
+                                       </div>
+                                </th>
+                                
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>ABC Company</td>
+                                <td>45789</td>
+                                <td>$500.00</td>
+                                <td>
+                                    <span class="delete-item">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </span>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>DEF Company</td>
+                                <td>65780</td>
+                                <td>$709.00</td>
+                                <td>
+                                    <span class="delete-item">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </span>
+                                </td>
+                              </tr>
+
+                              <tr>
+                                <td>GHR Company</td>
+                                <td>84647</td>
+                                <td>$234.00</td>
+                                <td>
+                                    <span class="delete-item">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </span>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td> IST Company</td>
+                                <td>84524</td>
+                                <td>$347.00</td>
+                                <td>
+                                    <span class="delete-item">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </span>
+                                </td>
+                              </tr>
+
+                            </tbody>
+                          </table>
+                    
+                        
+                        
+                        
+                        </div>
+                        </div>
+
+                    
+
+                </div>
+            <!-- /Supplier -->
+
+            <!-- Equipment Rental -->
+            <div class="supplier-container tab-content" id="tab-5">
+                    <div class="supplier-materials-form">
+                        <div class="section-title">
+                                Equipment Rental
+                        </div>
+
+                        <div class="supplier-form-indent">
+                            <ul>
+                                <li>
+                                    <input type="text" class="form-control" placeholder="Search Vendor">
+                                </li>
+                                <li>
+                                    <input type="text" class="form-control" placeholder="Ticket Number">
+                                </li>
+                                <li>
+                                    <input type="text" class="form-control" placeholder="Cost">
+                                </li>
+                                <li class="date-container">
+                                    <input type="text" class="form-control date-picker">
+                                </li>
+                                <li class="custom-btn padlr-50">
+                                    <button class="btn btn-gray" type="submit">
+                                        ADD TO RENTAL
+                                    </button>
+                                </li>
+
+                            </ul>
+                        </div>
+
+                    </div>
+
+                    <div class="data-table-wrapper">
+                            <div class="table-responsive">
+                        <table class="table">
+                            <thead class="thead-dark">
+                              <tr>
+                                <th scope="col"> 
+                                   <div class="label-wrapper">
+                                        <div class="data-label"> Vendor Name</div>
+                                        <div class="sorting-controls">
+                                            <img src="assets/img/arrow-top.jpg">
+                                            <img src="assets/img/arrow-bottom.jpg">
+                                        </div>
+                                   </div>
+                                </th>
+                                <th scope="col"> 
+                                        <div class="label-wrapper">
+                                             <div class="data-label"> Date</div>
+                                             <div class="sorting-controls">
+                                                 <img src="assets/img/arrow-top.jpg">
+                                                 <img src="assets/img/arrow-bottom.jpg">
+                                             </div>
+                                        </div>
+                                     </th>
+                                     
+
+                                <th scope="col">
+                                        <div class="label-wrapper">
+                                                <div class="data-label"> Ticket Number</div>
+                                                <div class="sorting-controls">
+                                                    <img src="assets/img/arrow-top.jpg">
+                                                    <img src="assets/img/arrow-bottom.jpg">
+                                                </div>
+                                           </div>
+                                </th>
+                                <th scope="col" colspan="2">
+                                    <div class="label-wrapper">
+                                            <div class="data-label"> Cost</div>
+                                            <div class="sorting-controls">
+                                                <img src="assets/img/arrow-top.jpg">
+                                                <img src="assets/img/arrow-bottom.jpg">
+                                            </div>
+                                       </div>
+                                </th>
+                                
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>ABC Company</td>
+                                <td>04/01/2018</td>
+                                <td>45789</td>
+                                <td>$500.00</td>
+                                <td>
+                                    <span class="delete-item">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </span>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>DEF Company</td>
+                                <td>04/01/2018</td>
+                                <td>65780</td>
+                                <td>$709.00</td>
+                                <td>
+                                    <span class="delete-item">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </span>
+                                </td>
+                              </tr>
+
+                              <tr>
+                                <td>GHR Company</td>
+                                <td>04/01/2018</td>
+                                <td>84647</td>
+                                <td>$234.00</td>
+                                <td>
+                                    <span class="delete-item">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </span>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td> IST Company</td>
+                                <td>04/01/2018</td>
+                                <td>84524</td>
+                                <td>$347.00</td>
+                                <td>
+                                    <span class="delete-item">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </span>
+                                </td>
+                              </tr>
+
+                            </tbody>
+                          </table>
+                        </div>
+                    </div>
+                </div>
+            <!-- /Equipment Rental -->
+
+            <!-- boco stock -->
+            <div class="supplier-container tab-content" id="tab-6">
+                    <div class="supplier-materials-form">
+                        <div class="section-title">
+                            BOCO Stock
+                        </div>
+
+                        <div class="radio-btn-group">
+                            <label for="electricals">
+                                <input type="radio" name="bocoStock" id="electricals">
+                                Electricals
+                            </label>
+                            <label for="mechanicals">
+                                <input type="radio" name="bocoStock" id="mechanicals">
+                                Mechanicals
+                            </label>
+                        </div>
+
+                        <div class="supplier-form-indent">
+                            <ul>
+                                <li>
+                                    <input type="text" class="form-control" placeholder="Search Items">
+                                </li>
+                                <li>
+                                    <input type="text" class="form-control" placeholder="Number of Items">
+                                </li>
+                                <li>
+                                    <input type="text" class="form-control" placeholder="Cost per Unit">
+                                </li>
+                                <li class="custom-btn padlr-50">
+                                    <button class="btn btn-gray" type="submit">
+                                        ADD TO STOCK
+                                    </button>
+                                </li>
+
+                            </ul>
+                        </div>
+
+                    </div>
+
+                    <div class="data-table-wrapper">
+                            <div class="table-responsive">
+                        <table class="table">
+                            <thead class="thead-dark">
+                              <tr>
+                                <th scope="col"> 
+                                   <div class="label-wrapper">
+                                        <div class="data-label"> Selcted Items</div>
+                                        <div class="sorting-controls">
+                                            <img src="assets/img/arrow-top.jpg">
+                                            <img src="assets/img/arrow-bottom.jpg">
+                                        </div>
+                                   </div>
+                                </th>
+                                <th scope="col"> 
+                                        <div class="label-wrapper">
+                                             <div class="data-label"> Type</div>
+                                             <div class="sorting-controls">
+                                                 <img src="assets/img/arrow-top.jpg">
+                                                 <img src="assets/img/arrow-bottom.jpg">
+                                             </div>
+                                        </div>
+                                     </th>
+                                     
+
+                                <th scope="col">
+                                        <div class="label-wrapper">
+                                                <div class="data-label"> Number of Items</div>
+                                                <div class="sorting-controls">
+                                                    <img src="assets/img/arrow-top.jpg">
+                                                    <img src="assets/img/arrow-bottom.jpg">
+                                                </div>
+                                           </div>
+                                </th>
+                                <th scope="col" colspan="2">
+                                    <div class="label-wrapper">
+                                            <div class="data-label"> Cost</div>
+                                            <div class="sorting-controls">
+                                                <img src="assets/img/arrow-top.jpg">
+                                                <img src="assets/img/arrow-bottom.jpg">
+                                            </div>
+                                       </div>
+                                </th>
+                                
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>Item Name 1</td>
+                                <td>Electricals</td>
+                                <td>45789</td>
+                                <td>$500.00</td>
+                                <td>
+                                    <span class="delete-item">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </span>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>Item Name 2</td>
+                                <td>Electricals</td>
+                                <td>65780</td>
+                                <td>$709.00</td>
+                                <td>
+                                    <span class="delete-item">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </span>
+                                </td>
+                              </tr>
+
+                              <tr>
+                                <td>Item Name 3</td>
+                                <td>Electricals</td>
+                                <td>84647</td>
+                                <td>$234.00</td>
+                                <td>
+                                    <span class="delete-item">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </span>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td> Item Name 4</td>
+                                <td>Electricals</td>
+                                <td>84524</td>
+                                <td>$347.00</td>
+                                <td>
+                                    <span class="delete-item">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </span>
+                                </td>
+                              </tr>
+
+                            </tbody>
+                          </table>
+                        </div>
+                    </div>
+                </div>
+            <!-- /boco stock -->
+
+            <!-- boco equipment -->
+            <div class="supplier-container tab-content" id="tab-7">
+                    <div class="supplier-materials-form">
+                        <div class="section-title">
+                            BOCO Equipment
+                        </div> 
+
+                        <div class="supplier-form-indent">
+                            <ul>
+                                <li>
+                                    <input type="text" class="form-control" placeholder="Item Name">
+                                </li>
+                                <li>
+                                    <input type="text" class="form-control" placeholder="Cost">
+                                </li>
+                                 
+                                <li class="custom-btn padlr-50">
+                                    <button class="btn btn-gray" type="submit">
+                                        ADD TO EQUIPMENT
+                                    </button>
+                                </li>
+
+                            </ul>
+                        </div>
+
+                    </div>
+
+                    <div class="data-table-wrapper">
+                            <div class="table-responsive">
+                        <table class="table">
+                            <thead class="thead-dark">
+                              <tr>
+                                <th scope="col"> 
+                                   <div class="label-wrapper">
+                                        <div class="data-label"> Item Name</div>
+                                        <div class="sorting-controls">
+                                            <img src="assets/img/arrow-top.jpg">
+                                            <img src="assets/img/arrow-bottom.jpg">
+                                        </div>
+                                   </div>
+                                </th> 
+                                <th scope="col" colspan="2">
+                                    <div class="label-wrapper">
+                                            <div class="data-label"> Cost</div>
+                                            <div class="sorting-controls">
+                                                <img src="assets/img/arrow-top.jpg">
+                                                <img src="assets/img/arrow-bottom.jpg">
+                                            </div>
+                                       </div>
+                                </th>
+                                
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>Item Name 1</td>
+                                <td>$500.00</td>
+                                <td>
+                                    <span class="delete-item">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </span>
+                                </td>
+                              </tr>
+                            <tr>
+                                <td>Item Name 2</td>
+                                <td>$500.00</td>
+                                <td>
+                                    <span class="delete-item">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                    <td>Item Name 3</td>
+                                    <td>$500.00</td>
+                                    <td>
+                                        <span class="delete-item">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                        <td>Item Name 4</td>
+                                        <td>$500.00</td>
+                                        <td>
+                                            <span class="delete-item">
+                                                <i class="fas fa-trash-alt"></i>
+                                            </span>
+                                        </td>
+                                    </tr>
+                              
+
+                            </tbody>
+                          </table>
+                        </div>
+                    </div>
+                </div>
+            <!-- /boco equipment -->
+
+            <!-- time entry -->
+            <div class="supplier-container tab-content" id="tab-8">
+                    <div class="supplier-materials-form">
+                        <div class="section-title">
+                            Time Entry
+                        </div> 
+
+                        <div class="supplier-form-indent">
+                            <ul class="time-entry-form">
+                                <li class="date-container">
+                                    <input type="text" class="form-control date-picker">
+                                </li>
+                                <li class="field-label">Time in</li>
+                                <li>
+                                    <select class="form-control">
+                                        <option value="Hrs.">Hrs.</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
+                                        <option value="11">11</option>
+                                        <option value="12">12</option>
+                                        <option value="13">13</option>
+                                        <option value="14">14</option>
+                                        <option value="15">15</option>
+                                        <option value="16">16</option>
+                                        <option value="17">17</option>
+                                        <option value="18">18</option>
+                                        <option value="19">19</option>
+                                        <option value="20">20</option>
+                                        <option value="21">21</option>
+                                        <option value="22">22</option>
+                                        <option value="23">23</option>
+                                        <option value="24">24</option>
+                                    </select>
+                                </li>
+                                <li>
+                                <select class="form-control">
+                                    <option value="Mts">Mts</option>
+                                    <option value="00">00</option>
+                                    <option value="01">01</option>
+                                    <option value="02">02</option>
+                                    <option value="03">03</option>
+                                    <option value="04">04</option>
+                                    <option value="05">05</option>
+                                    <option value="06">06</option>
+                                    <option value="07">07</option>
+                                    <option value="08">08</option>
+                                    <option value="09">09</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                    <option value="13">13</option>
+                                    <option value="14">14</option>
+                                    <option value="15">15</option>
+                                    <option value="16">16</option>
+                                    <option value="17">17</option>
+                                    <option value="18">18</option>
+                                    <option value="19">19</option>
+                                    <option value="20">20</option>
+                                    <option value="21">21</option>
+                                    <option value="22">22</option>
+                                    <option value="23">23</option>
+                                    <option value="24">24</option>
+                                    <option value="25">25</option>
+                                    <option value="26">26</option>
+                                    <option value="27">27</option>
+                                    <option value="28">28</option>
+                                    <option value="29">29</option>
+                                    <option value="30">30</option>
+                                    <option value="31">31</option>
+                                    <option value="32">32</option>
+                                    <option value="33">33</option>
+                                    <option value="34">34</option>
+                                    <option value="35">35</option>
+                                    <option value="36">36</option>
+                                    <option value="37">37</option>
+                                    <option value="38">38</option>
+                                    <option value="39">39</option>
+                                    <option value="40">40</option>
+                                    <option value="41">41</option>
+                                    <option value="42">42</option>
+                                    <option value="43">43</option>
+                                    <option value="44">44</option>
+                                    <option value="45">45</option>
+                                    <option value="46">46</option>
+                                    <option value="47">47</option>
+                                    <option value="48">48</option>
+                                    <option value="49">49</option>
+                                    <option value="50">50</option>
+                                    <option value="51">51</option>
+                                    <option value="52">52</option>
+                                    <option value="53">53</option>
+                                    <option value="54">54</option>
+                                    <option value="55">55</option>
+                                    <option value="56">56</option>
+                                    <option value="57">57</option>
+                                    <option value="58">58</option>
+                                    <option value="59">59</option>
+                                    </select>
+                                </li>
+                                <li class="field-label">
+                                        Time Out
+                                </li>
+                                <li>
+                                        <select class="form-control">
+                                            <option value="Hrs.">Hrs.</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
+                                            <option value="7">7</option>
+                                            <option value="8">8</option>
+                                            <option value="9">9</option>
+                                            <option value="10">10</option>
+                                            <option value="11">11</option>
+                                            <option value="12">12</option>
+                                            <option value="13">13</option>
+                                            <option value="14">14</option>
+                                            <option value="15">15</option>
+                                            <option value="16">16</option>
+                                            <option value="17">17</option>
+                                            <option value="18">18</option>
+                                            <option value="19">19</option>
+                                            <option value="20">20</option>
+                                            <option value="21">21</option>
+                                            <option value="22">22</option>
+                                            <option value="23">23</option>
+                                            <option value="24">24</option>
+                                        </select>
+                                    </li>
+                                    <li>
+                                    <select class="form-control">
+                                        <option value="Mts">Mts</option>
+                                        <option value="00">00</option>
+                                        <option value="01">01</option>
+                                        <option value="02">02</option>
+                                        <option value="03">03</option>
+                                        <option value="04">04</option>
+                                        <option value="05">05</option>
+                                        <option value="06">06</option>
+                                        <option value="07">07</option>
+                                        <option value="08">08</option>
+                                        <option value="09">09</option>
+                                        <option value="10">10</option>
+                                        <option value="11">11</option>
+                                        <option value="12">12</option>
+                                        <option value="13">13</option>
+                                        <option value="14">14</option>
+                                        <option value="15">15</option>
+                                        <option value="16">16</option>
+                                        <option value="17">17</option>
+                                        <option value="18">18</option>
+                                        <option value="19">19</option>
+                                        <option value="20">20</option>
+                                        <option value="21">21</option>
+                                        <option value="22">22</option>
+                                        <option value="23">23</option>
+                                        <option value="24">24</option>
+                                        <option value="25">25</option>
+                                        <option value="26">26</option>
+                                        <option value="27">27</option>
+                                        <option value="28">28</option>
+                                        <option value="29">29</option>
+                                        <option value="30">30</option>
+                                        <option value="31">31</option>
+                                        <option value="32">32</option>
+                                        <option value="33">33</option>
+                                        <option value="34">34</option>
+                                        <option value="35">35</option>
+                                        <option value="36">36</option>
+                                        <option value="37">37</option>
+                                        <option value="38">38</option>
+                                        <option value="39">39</option>
+                                        <option value="40">40</option>
+                                        <option value="41">41</option>
+                                        <option value="42">42</option>
+                                        <option value="43">43</option>
+                                        <option value="44">44</option>
+                                        <option value="45">45</option>
+                                        <option value="46">46</option>
+                                        <option value="47">47</option>
+                                        <option value="48">48</option>
+                                        <option value="49">49</option>
+                                        <option value="50">50</option>
+                                        <option value="51">51</option>
+                                        <option value="52">52</option>
+                                        <option value="53">53</option>
+                                        <option value="54">54</option>
+                                        <option value="55">55</option>
+                                        <option value="56">56</option>
+                                        <option value="57">57</option>
+                                        <option value="58">58</option>
+                                        <option value="59">59</option>
+                                        </select>
+                                    </li>
+                                    <li>
+                                        <input type="text" class="form-control" placeholder="Work Type">
+                                    </li>
+                                 
+                                <li class="custom-btn padlr-50">
+                                    <button class="btn btn-gray" type="submit">
+                                        ADD
+                                    </button>
+                                </li>
+
+                            </ul>
+                        </div>
+
+                    </div>
+
+                    <div class="data-table-wrapper">
+                            <div class="table-responsive">
+                        <table class="table">
+                            <thead class="thead-dark">
+                              <tr>
+                                <th scope="col"> 
+                                   <div class="label-wrapper">
+                                        <div class="data-label">Employee Name</div>
+                                        <div class="sorting-controls">
+                                            <img src="assets/img/arrow-top.jpg">
+                                            <img src="assets/img/arrow-bottom.jpg">
+                                        </div>
+                                   </div>
+                                </th> 
+                                <th scope="col"> 
+                                        <div class="label-wrapper">
+                                             <div class="data-label">Date</div>
+                                             <div class="sorting-controls">
+                                                 <img src="assets/img/arrow-top.jpg">
+                                                 <img src="assets/img/arrow-bottom.jpg">
+                                             </div>
+                                        </div>
+                                     </th> 
+                                     <th scope="col"> 
+                                            <div class="label-wrapper">
+                                                 <div class="data-label">Time in</div>
+                                                 <div class="sorting-controls">
+                                                     <img src="assets/img/arrow-top.jpg">
+                                                     <img src="assets/img/arrow-bottom.jpg">
+                                                 </div>
+                                            </div>
+                                         </th> 
+                                         <th scope="col"> 
+                                                <div class="label-wrapper">
+                                                     <div class="data-label">Time out</div>
+                                                     <div class="sorting-controls">
+                                                         <img src="assets/img/arrow-top.jpg">
+                                                         <img src="assets/img/arrow-bottom.jpg">
+                                                     </div>
+                                                </div>
+                                             </th> 
+                                             <th scope="col"> 
+                                                    <div class="label-wrapper">
+                                                         <div class="data-label">Total Time</div>
+                                                         <div class="sorting-controls">
+                                                             <img src="assets/img/arrow-top.jpg">
+                                                             <img src="assets/img/arrow-bottom.jpg">
+                                                         </div>
+                                                    </div>
+                                                 </th> 
+                                                 
+
+
+
+                                <th scope="col" colspan="2">
+                                    <div class="label-wrapper">
+                                            <div class="data-label"> Work Type</div>
+                                            <div class="sorting-controls">
+                                                <img src="assets/img/arrow-top.jpg">
+                                                <img src="assets/img/arrow-bottom.jpg">
+                                            </div>
+                                       </div>
+                                </th>
+                                
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>Jim Moore</td>
+                                <td> 04/01/2018</td>
+                                <td>09:00 AM</td>
+                                <td>5:00 PM</td>
+                                <td>9:00</td>
+                                <td>Supplier Entry</td>
+                                <td>
+                                    <span class="delete-item">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </span>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>Jim Moore</td>
+                                <td> 04/01/2018</td>
+                                <td>09:00 AM</td>
+                                <td>5:00 PM</td>
+                                <td>9:00</td>
+                                <td>Supplier Entry</td>
+                                <td>
+                                    <span class="delete-item">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </span>
+                                </td>
+                                </tr>
+                                  <tr>
+                                    <td>Jim Moore</td>
+                                    <td> 04/01/2018</td>
+                                    <td>09:00 AM</td>
+                                    <td>5:00 PM</td>
+                                    <td>9:00</td>
+                                    <td>Supplier Entry</td>
+                                    <td>
+                                        <span class="delete-item">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </span>
+                                    </td>
+                                    </tr>
+                                      <tr>
+                                        <td>Jim Moore</td>
+                                        <td> 04/01/2018</td>
+                                        <td>09:00 AM</td>
+                                        <td>5:00 PM</td>
+                                        <td>9:00</td>
+                                        <td>Supplier Entry</td>
+                                        <td>
+                                            <span class="delete-item">
+                                                <i class="fas fa-trash-alt"></i>
+                                            </span>
+                                        </td>
+                                        </tr>
+                                          <tr>
+                                            <td>Jim Moore</td>
+                                            <td> 04/01/2018</td>
+                                            <td>09:00 AM</td>
+                                            <td>5:00 PM</td>
+                                            <td>9:00</td>
+                                            <td>Supplier Entry</td>
+                                            <td>
+                                                <span class="delete-item">
+                                                    <i class="fas fa-trash-alt"></i>
+                                                </span>
+                                            </td>
+                                            </tr>
+
+                                              
+                           
+
+                            </tbody>
+                          </table>
+                        </div>
+                    </div>
+                </div>
+            <!-- /time entry -->
+
+            <!-- Signature -->
+            <div class="supplier-container tab-content" id="tab-9">
+                    <div class="supplier-materials-form">
+                        <div class="section-title">
+                            Complete Work Order
+                        </div> 
+
+                        <div class="complete-work-order">
+                            <div class="section-sub-title">
+                                    Disclaimer and Warranty Info
+                            </div>
+                            <div class="textarea-container">
+                                <textarea cols="5" rows="6" class="form-control">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam auctor blandit tristique. Suspendisse bibendum non orci a dapibus. Sed leo velit, sodales eu tempus ac, ultrices sed leo. Sed tortor risus, aliquam eu mi in, pharetra suscipit tellus. Nulla sagittis rutrum efficitur. Integer tempus tempor mi, non facilisis augue sodales non.  Suspendisse condimentum lectus sed sagittis cursus. Sed feugiat nunc eu augue pulvinar, a hendrerit urna tincidunt. Nullam quis arcu vitae enim pretium dapibus.Aliquam pellentesque tristique neque et tempor. Suspendisse ex libero, ultricies ut ornare sed, accumsan in est. Sed viverra vel metus sed mollis. Sed nibh urna, vestibulum eu sodales non, malesuada eu mauris. Mauris est nisl, mattis in feugiat lacinia, dictum eget neque. Maecenas commodo eros sed feugiat sodales. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Ut a mollis mi, suscipit feugiat mi. Praesent nec erat commodo, lobortis magna vel, imperdiet diam. Phasellus nec ex ac odio vehicula aliquet. Aenean at lobortis enim. Aenean volutpat bibendum lorem, sit amet hendrerit purus mattis non. Nullam rutrum rutrum aliquet. Suspendisse maximus, nibh vitae ultrices sollicitudin, ipsum enim venenatis est, a euismod lorem sapien vel massa. Mauris ac odio mauris. Nulla aliquam, nibh volutpat ullamcorper elementum, est enim egestas eros, a tincidunt justo mi eget diam. Mauris semper nisl eu faucibus dapibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam auctor blandit tristique. Suspendisse bibendum non orci a dapibus. Sed leo velit, sodales eu tempus ac, ultrices sed leo. Sed tortor risus, aliquam eu mi in, pharetra suscipit tellus. Nulla sagittis rutrum efficitur. Integer tempus tempor mi, non facilisis augue sodales non.  Suspendisse condimentum lectus sed sagittis cursus. Sed feugiat nunc eu augue pulvinar, a hendrerit urna tincidunt. Nullam quis arcu vitae enim pretium dapibus.Aliquam pellentesque tristique neque et tempor. Suspendisse ex libero, ultricies ut ornare sed, accumsan in est. Sed viverra vel metus sed mollis. Sed nibh urna, vestibulum eu sodales non, malesuada eu mauris. Mauris est nisl, mattis in feugiat lacinia, dictum eget neque. Maecenas commodo eros sed feugiat sodales. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Ut a mollis mi, suscipit feugiat mi. Praesent nec erat commodo, lobortis magna vel, imperdiet diam. Phasellus nec ex ac odio vehicula aliquet. Aenean at lobortis enim. Aenean volutpat bibendum lorem, sit amet hendrerit purus mattis non. Nullam rutrum rutrum aliquet. Suspendisse maximus, nibh vitae ultrices sollicitudin, ipsum enim venenatis est, a euismod lorem sapien vel massa. Mauris ac odio mauris. Nulla aliquam, nibh volutpat ullamcorper elementum, est enim egestas eros, a tincidunt justo mi eget diam. Mauris semper nisl eu faucibus dapibus.</textarea>
+                            </div>
+
+                            <div class="additional-comments">
+                                <label for="additionalComments">
+                                    <input type="checkbox" id="additionalComments"> Additional Comments
+                                </label>
+                            </div>
+
+                            <div class="comments-form-container row">
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <textarea class="form-control" placeholder="Comments"></textarea>
+                                    <div class="flex custom-btn">
+                                            <button class="btn btn-lightgray">EDIT</button>
+                                            <button class="btn btn-gray">SAVE</button>
+        
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-6 col-xs-12 customer-signature">
+                                        <div class="card">
+                                            <div class="card-header">
+                                                Customer Signature
+                                            </div>
+                                            <div class="card-body min-height100">
+                                                
+                                            </div>
+                                        </div>
+                                </div>
+
+
+
+                            </div>
+                        </div>
+
+                         
+
+                    </div>
+ 
+                </div>
+            <!-- /Signature -->
+
+
+
+        </div>
+    </div>
+    <!-- /content -->
+
+
+
+    <!-- footer -->
+    <div class="inner-footer">
+        <div class="container">
+            <div class="footer-info">
+                <p class="footer-logo">
+                    BOCO,  Inc.
+                </p>
+                <p class="footer-des">
+                    Lorem ipsum dolor sit amet,<br>
+                    consectetur adipiscing elit .
+                </p>
+            </div>
+        </div>
+        <div class="footer-indent">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 copyright">
+                        © BOCO, Inc. 2018
+                    </div>
+                    <div class="col-md-6 align-right">
+                        <button class="btn btn-gray pageScollTop">
+                            TOP
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /footer -->
+
+<!-- font awesome -->
+<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="assets/bootstrap/js/bootstrap.bundle.js"></script>
+<script src="assets/plugins/date-picker/bootstrap-datepicker.min.js"></script>
+<script src="assets/plugins/easyautocomplete/jquery.easy-autocomplete.min.js"></script>
+<script src="assets/plugins/toast-notifications/js/jquery.toast.js"></script>
+<!-- layout js -->
+<script src="assets/js/script.js"></script>
+<!-- google map api -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCyeLknkKD-AILi9LT9EcoDo0HouW9YVyM&callback=mapRender"></script>
+
+</body>
+</html>
